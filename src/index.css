@@ -1,13 +1,61 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Soundwave Animation */
+.sound-wave {
+  position: relative;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.wave {
+  position: absolute;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  animation: pulseWave 2s infinite ease-in-out;
+  pointer-events: none;
+}
+
+.wave1 {
+  width: 100%;
+  height: 100%;
+}
+
+.wave2 {
+  width: 85%;
+  height: 85%;
+  animation-delay: 0.4s;
+}
+
+.wave3 {
+  width: 70%;
+  height: 70%;
+  animation-delay: 0.8s;
+}
+
+@keyframes pulseWave {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.wave-animation {
+  position: relative;
+  display: inline-block;
+  color: white; /* Adjust color as needed */
+  animation: wave 1.5s infinite;
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* Adjust the height of the wave */
+  }
 }
