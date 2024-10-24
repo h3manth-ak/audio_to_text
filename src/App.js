@@ -1,9 +1,18 @@
-import React from "react";
-import "./index.css"; // Make sure to have your Tailwind CSS imported here
-import MicrophoneComponent from "./MicrophoneComponent"; // Make sure to have your Tailwind CSS imported here
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import MicrophoneComponent from './MicrophoneComponent';
+import SavedTranscript from './SavedTranscript';
 
 function App() {
-  return <MicrophoneComponent />;
+  const [savedTranscripts, setSavedTranscripts] = useState([]);
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<MicrophoneComponent savedTranscripts={savedTranscripts} setSavedTranscripts={setSavedTranscripts} />} />
+        <Route path="/saved-transcript" element={<SavedTranscript />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
