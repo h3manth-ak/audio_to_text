@@ -123,6 +123,7 @@ function MicrophoneComponent() {
       const newTranscript = { title, content: transcript };
       setSavedTranscripts((prev) => [...prev, newTranscript]);
       setTranscript(""); // Clear transcript after saving
+      setIsLoading(false);
     } else {
       alert("Please provide a title and ensure there is content to save.");
     }
